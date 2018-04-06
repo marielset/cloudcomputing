@@ -18,7 +18,7 @@
         <button id="blue" onclick="changeColor('blue')">Blue</button>
         <button id="yelow" onclick="changeColor('yellow')">Yellow</button>
         <button id = "clearCanvas" onclick="clearCanvas()">Clear</button>
-        <button id="square" onclick="drawSquare()">Draw A Square</button>
+        <button id="square" onclick="drawRectangle()">Draw A Rectangle</button>
         <button id="circle" onclick="drawCircle()">Draw A Circle</button>
     </div>
 <canvas id = "ourCanvas" width = "500" height = "250" style="border: 1px solid black"</canvas>
@@ -54,32 +54,37 @@
         //context.lineWidth = 5;
     }
     
-    function drawSquare(){
-        // square height
-        var dimensions = parseInt(prompt("Enter the height of your square"));
-        if (dimensions > 250 || dimensions < 0) {
-            var dimensions = parseInt(prompt("Dimension value is invalid.\n\nEnter a new height for your square"));
+    function drawRectangle(){
+        // rectangle height
+        var height = parseInt(prompt("Enter the height of your rectangle"));
+        if (height > 250 || height < 0) {
+            var height = parseInt(prompt("Dimension value is invalid.\n\nEnter a new height for your Rectangle"));
+        }
+        // rectangle width
+        var width = parseInt(prompt("Enter the width of your rectangle"));
+        if (width > 500 || width < 0) {
+            var width = parseInt(prompt("Width value is invalid. \n\nEnter a new width for your Rectangle"));
         }
         // starting x coordinate
-        var xcoor = parseInt(prompt("Enter the X coordinate of your square"));
+        var xcoor = parseInt(prompt("Enter the X coordinate of your rectangle"));
         if(xcoor < 0 || xcoor > 500) {
             var xcoor = parseInt(prompt("Xcoordination is out of bounds.\n\nEnter a new X coordinate for your square"));
         }
-        else if (xcoor + dimensions > 500) {
+        else if (xcoor + width > 500) {
             var xcoor = parseInt(prompt("Xcoordinate plus dimention is out of bounds.\n\nEnter a new X coordinate for your square"));
         }
         // starting y coordinate
-        var ycoor = parseInt(prompt("Enter the Y coordinate of your square"));
+        var ycoor = parseInt(prompt("Enter the Y coordinate of your rectangle"));
         if(ycoor < 0 || ycoor > 250) {
             var ycoor = parseInt(prompt("Ycoordination is out of bounds.\n\nEnter a new Y coordinate for your square"));
         }
-        else if (ycoor + dimensions > 250) {
+        else if (ycoor + height> 250) {
             var ycoor = parseInt(prompt("Ycoordinate plus dimention is out of bounds.\n\nEnter a new Y coordinate for your square"));
         }
         
         
         context.fillStyle = context.strokeStyle;
-        context.fillRect(xcoor,ycoor,dimensions, dimensions);
+        context.fillRect(xcoor,ycoor,width, height);
        
         context.stroke;
     }
