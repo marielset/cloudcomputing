@@ -1,1 +1,36 @@
-index.html
+<!DOCTYPE html>
+
+<html>
+
+
+
+<head>
+
+</head>
+
+<body>
+<h1>Paint: by Mariel Setton and Brendan Paul</h1>
+<canvas id = "ourCanvas" width = "500" height = "250" style="border: 1px solid black"</canvas>
+<script>
+
+    var canvas = document.getElementById('ourCanvas');
+    var context = canvas.getContext('2d');
+
+    context.fillStyle = 'red';
+    context.strokeStyle = 'black';
+
+    context.font = '20pt Verdana';
+    context.fillText('Some text', 50, 50);
+    context.strokeText('Some text', 50, 50);
+
+    context.fill();
+    context.stroke();
+</script>
+
+
+
+
+
+
+</body>
+</html> 
