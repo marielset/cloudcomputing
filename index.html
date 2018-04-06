@@ -55,10 +55,30 @@
         //context.lineWidth = 5;
     }
     function drawSquare(){
+        // square height
         var dimensions = parseInt(prompt("Enter the height of your square"));
+        if (dimensions > 250 || dimensions < 0) {
+            var dimensions = parseInt(prompt("Dimension value is invalid.\n\nEnter a new height for your square"));
+        }
+        // starting x coordinate
         var xcoor = parseInt(prompt("Enter the X coordinate of your square"));
+        if(xcoor < 0 || xcoor > 500) {
+            var xcoor = parseInt(prompt("Xcoordination is out of bounds.\n\nEnter a new X coordinate for your square"));
+        }
+        else if (xcoor + dimensions > 500) {
+            var xcoor = parseInt(prompt("Xcoordinate plus dimention is out of bounds.\n\nEnter a new X coordinate for your square"));
+        }
+        // starting y coordinate
         var ycoor = parseInt(prompt("Enter the Y coordinate of your square"));
-        context.fillStyle = "rgb(0,0,175)";
+        if(ycoor < 0 || ycoor > 250) {
+            var ycoor = parseInt(prompt("Ycoordination is out of bounds.\n\nEnter a new Y coordinate for your square"));
+        }
+        else if (ycoor + dimensions > 250) {
+            var ycoor = parseInt(prompt("Ycoordinate plus dimention is out of bounds.\n\nEnter a new Y coordinate for your square"));
+        }
+        
+        
+        context.fillStyle = context.strokeStyle;
         context.fillRect(xcoor,ycoor,dimensions, dimensions);
        
         context.stroke;
