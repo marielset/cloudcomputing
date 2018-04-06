@@ -17,6 +17,7 @@
             <button id="red" onclick="changeColor('red')">Red</button>
             <button id="green" onclick="changeColor('green')">Green</button>
             <button id="blue" onclick="changeColor('blue')">Blue</button>
+            <button id="yelow" onclick="changeColor('yellow')">Yellow</button>
             <button id = "clearCanvas" onclick="clearCanvas()">Clear</button>
             <button id="square" onclick="drawSquare()">Draw A Square</button>
         </div>
@@ -51,6 +52,7 @@
             context.lineTo(xPos, yPos);
             context.stroke();
         }
+        //context.lineWidth = 5;
     }
     function drawSquare(){
         var dimensions = parseInt(prompt("Enter the height of your square"));
@@ -63,6 +65,12 @@
     }
     function changeColor(color) {
         context.strokeStyle = color;
+        if(color == 'white') {
+            context.lineWidth = 15;
+        }
+        else {
+            context.lineWidth = 5;
+        }
     }
     function clearCanvas() {
           context.clearRect(0,0,canvas.width,canvas.height);
