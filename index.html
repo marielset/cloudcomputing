@@ -15,16 +15,48 @@
 
     var canvas = document.getElementById('ourCanvas');
     var context = canvas.getContext('2d');
+    // to see when the canvas should draw a line
+    var clicked = false;
 
     context.fillStyle = 'red';
     context.strokeStyle = 'black';
+    // line width
+    context.lineWidth = 5;
 
-    context.font = '20pt Verdana';
-    context.fillText('Some text', 50, 50);
-    context.strokeText('Some text', 50, 50);
+    //context.font = '20pt Verdana';
 
-    context.fill();
-    context.stroke();
+    // draw function, pulls the x and y coordinates of the mouse
+    function draw(e) {
+        // get the mouse coordinate relative to our canvas
+        xPos = e.clientX - canvas.offsetLeft;
+        yPos = e.clientY - canvas.offsetTop;
+
+        // if the mouse is clicked, draw a line
+        if(clicked == true) {
+            context.lineTo(xPos, yPos);
+            context.stroke();
+        }
+    }
+
+    // Call the draw function when we move our mouse over the canvas
+    canvas.addEventListener('mousemove', draw);
+    // when the mousebutton is down call this function
+    canvas.addEventListener('mousedown', function()
+    {
+        // first assign clicked to true
+        clicked = true;
+        context.beginPath();
+        context.moveTo(xPos, yPos);
+        canvas.addEventListener(mousemove, draw);
+    });
+
+    canvas.addEventListener('mouseup', function()
+    {
+        clicked = false;
+    })
+
+
+
 </script>
 
 
