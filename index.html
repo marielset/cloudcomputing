@@ -17,6 +17,7 @@
             <button id="red" onclick="changeColor('red')">Red</button>
             <button id="green" onclick="changeColor('green')">Green</button>
             <button id="blue" onclick="changeColor('blue')">Blue</button>
+            <button id = "clearCanvas" onclick="clearCanvas()">Clear</button>
         </div>
     </div>
 <canvas id = "ourCanvas" width = "500" height = "250" style="border: 1px solid black"</canvas>
@@ -50,7 +51,9 @@
     function changeColor(color) {
         context.strokeStyle = color;
     }
-
+    function clearCanvas() {
+          context.clearRect(0,0,canvas.width,canvas.height);
+      }
     // Call the draw function when we move our mouse over the canvas
     canvas.addEventListener('mousemove', draw);
     // when the mousebutton is down call this function
