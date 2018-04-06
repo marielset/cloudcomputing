@@ -19,6 +19,7 @@
         <button id="yelow" onclick="changeColor('yellow')">Yellow</button>
         <button id = "clearCanvas" onclick="clearCanvas()">Clear</button>
         <button id="square" onclick="drawSquare()">Draw A Square</button>
+        <button id="circle" onclick="drawCircle()">Draw A Circle</button>
     </div>
 <canvas id = "ourCanvas" width = "500" height = "250" style="border: 1px solid black"</canvas>
  
@@ -52,6 +53,7 @@
         }
         //context.lineWidth = 5;
     }
+    
     function drawSquare(){
         // square height
         var dimensions = parseInt(prompt("Enter the height of your square"));
@@ -81,6 +83,43 @@
        
         context.stroke;
     }
+    
+    function drawCircle() {
+        // get radius
+        var radius = parseInt(prompt("Enter the Radius of your circle"));
+        // check that radius wont surpass frame of canvas
+        if (radius > 125 || radius < 0) {
+            var radius = parseInt(prompt("Radius value is invalid.\n\nEnter a new radius for your circle"));
+        }
+        
+        // get xcoordinate of the center of the circle  
+        var xcoor = parseInt(prompt("Enter the X coordinate of the center of your circle"));
+        // check that xcoordinate is within bounds of canvas
+        if(xcoor < 0 || xcoor > 500) {
+            var xcoor = parseInt(prompt("Xcoordination is out of bounds.\n\nEnter a new X coordinate for your square"));
+        }
+        // check that the circle will not be beyond the bounds of the canvas
+        else if ( (xcoor + radius > 500) || (xcoor - radius < 0)) {
+            var xcoor = parseInt(prompt("Xcoordinate plus radius is out of bounds.\n\nEnter a new X coordinate for your circle"));
+        }
+        
+        // get the ycoordinate of the center of the circle
+        var ycoor = parseInt(prompt("Enter the Y coordinate of the center of your circle"));
+        // check that ycoordinate is in bounds of the canvas 
+        if(ycoor < 0 || ycoor > 250) {
+            var ycoor = parseInt(prompt("Ycoordination is out of bounds.\n\nEnter a new Y coordinate for your circle"));
+        }
+        // check that the circle radius and coordinates together will be in cnavas
+        else if (( ycoor + radius > 250 ) || (ycoor - radius < 0)) {
+            var ycoor = parseInt(prompt("Ycoordinate plus radius is out of bounds.\n\nEnter a new Y coordinate for your circle"));
+        }
+        
+        
+        context.beginPath();
+        context.arc(xcoor,ycoor,radius,0,2 * Math.PI,false);
+        context.fillStyle = context.strokeStyle;
+        context.fill();
+      }
     function changeColor(color) {
         context.strokeStyle = color;
         if(color == 'white') {
