@@ -10,6 +10,15 @@
 
 <body>
 <h1>Paint: by Mariel Setton and Brendan Paul</h1>
+    <div id="drawingTools">
+        <div id="colors">
+            <button id="white" onclick="changeColor('white')">Erase</button>
+            <button id="black" onclick="changeColor('black')">Black</button>
+            <button id="red" onclick="changeColor('red')">Red</button>
+            <button id="green" onclick="changeColor('green')">Green</button>
+            <button id="blue" onclick="changeColor('blue')">Blue</button>
+        </div>
+    </div>
 <canvas id = "ourCanvas" width = "500" height = "250" style="border: 1px solid black"</canvas>
 <script>
 
@@ -36,6 +45,10 @@
             context.lineTo(xPos, yPos);
             context.stroke();
         }
+    }
+
+    function changeColor(color) {
+        context.strokeStyle = color;
     }
 
     // Call the draw function when we move our mouse over the canvas
