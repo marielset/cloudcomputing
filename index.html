@@ -56,30 +56,31 @@
     
     function drawRectangle(){
         // rectangle height
-        var height = parseInt(prompt("Enter the height of your rectangle"));
-        if (height > 250 || height < 0) {
-            var height = parseInt(prompt("Dimension value is invalid.\n\nEnter a new height for your Rectangle"));
+        var height = parseInt(prompt("Enter the height of your rectangle (0-250)"));
+        
+        if (height > 250 || height < 0 || (isNaN(height))) {
+            var height = parseInt(prompt("Dimension value is invalid.\n\nEnter a new height for your Rectangle (0-250)"));
         }
         // rectangle width
-        var width = parseInt(prompt("Enter the width of your rectangle"));
-        if (width > 500 || width < 0) {
-            var width = parseInt(prompt("Width value is invalid. \n\nEnter a new width for your Rectangle"));
+        var width = parseInt(prompt("Enter the width of your rectangle (0-500)"));
+        if (width > 500 || width < 0 || isNaN(width)) {
+            var width = parseInt(prompt("Width value is invalid. \n\nEnter a new width for your Rectangle (0-500)"));
         }
         // starting x coordinate
-        var xcoor = parseInt(prompt("Enter the X coordinate of your rectangle"));
-        if(xcoor < 0 || xcoor > 500) {
-            var xcoor = parseInt(prompt("Xcoordination is out of bounds.\n\nEnter a new X coordinate for your square"));
+        var xcoor = parseInt(prompt("Enter the X coordinate of your rectangle (0-500)"));
+        if(xcoor < 0 || xcoor > 500 || isNaN(xcoor)) {
+            var xcoor = parseInt(prompt("Xcoordination is out of bounds.\n\nEnter a new X coordinate for your square (0-500)"));
         }
         else if (xcoor + width > 500) {
-            var xcoor = parseInt(prompt("Xcoordinate plus dimention is out of bounds.\n\nEnter a new X coordinate for your square"));
+            var xcoor = parseInt(prompt("Xcoordinate plus dimention is out of bounds.\n\nEnter a new X coordinate for your square(0-500)"));
         }
         // starting y coordinate
-        var ycoor = parseInt(prompt("Enter the Y coordinate of your rectangle"));
-        if(ycoor < 0 || ycoor > 250) {
+        var ycoor = parseInt(prompt("Enter the Y coordinate of your rectangle (0-250)"));
+        if(ycoor < 0 || ycoor > 250 || isNaN(ycoor)) {
             var ycoor = parseInt(prompt("Ycoordination is out of bounds.\n\nEnter a new Y coordinate for your square"));
         }
         else if (ycoor + height> 250) {
-            var ycoor = parseInt(prompt("Ycoordinate plus dimention is out of bounds.\n\nEnter a new Y coordinate for your square"));
+            var ycoor = parseInt(prompt("Ycoordinate plus dimention is out of bounds.\n\nEnter a new Y coordinate for your square(0-250)"));
         }
         
         
@@ -91,28 +92,28 @@
     
     function drawCircle() {
         // get radius
-        var radius = parseInt(prompt("Enter the Radius of your circle"));
+        var radius = parseInt(prompt("Enter the Radius of your circle (0-125)"));
         // check that radius wont surpass frame of canvas
-        if (radius > 125 || radius < 0) {
-            var radius = parseInt(prompt("Radius value is invalid.\n\nEnter a new radius for your circle"));
+        if (radius > 125 || radius < 0 || isNaN(radius)) {
+            var radius = parseInt(prompt("Radius value is invalid.\n\nEnter a new radius for your circle(0-125)"));
         }
         
         // get xcoordinate of the center of the circle  
-        var xcoor = parseInt(prompt("Enter the X coordinate of the center of your circle"));
+        var xcoor = parseInt(prompt("Enter the X coordinate of the center of your circle (0-500)"));
         // check that xcoordinate is within bounds of canvas
-        if(xcoor < 0 || xcoor > 500) {
-            var xcoor = parseInt(prompt("Xcoordination is out of bounds.\n\nEnter a new X coordinate for your square"));
+        if(xcoor < 0 || xcoor > 500 || isNaN(xcoor)) {
+            var xcoor = parseInt(prompt("Xcoordination is out of bounds.\n\nEnter a new X coordinate for your square(0-500)"));
         }
         // check that the circle will not be beyond the bounds of the canvas
         else if ( (xcoor + radius > 500) || (xcoor - radius < 0)) {
-            var xcoor = parseInt(prompt("Xcoordinate plus radius is out of bounds.\n\nEnter a new X coordinate for your circle"));
+            var xcoor = parseInt(prompt("Xcoordinate plus radius is out of bounds.\n\nEnter a new X coordinate for your circle(0-500)"));
         }
         
         // get the ycoordinate of the center of the circle
-        var ycoor = parseInt(prompt("Enter the Y coordinate of the center of your circle"));
+        var ycoor = parseInt(prompt("Enter the Y coordinate of the center of your circle (0-250)"));
         // check that ycoordinate is in bounds of the canvas 
-        if(ycoor < 0 || ycoor > 250) {
-            var ycoor = parseInt(prompt("Ycoordination is out of bounds.\n\nEnter a new Y coordinate for your circle"));
+        if(ycoor < 0 || ycoor > 250 || isNaN(ycoor)) {
+            var ycoor = parseInt(prompt("Ycoordination is out of bounds.\n\nEnter a new Y coordinate for your circle (0-250)"));
         }
         // check that the circle radius and coordinates together will be in cnavas
         else if (( ycoor + radius > 250 ) || (ycoor - radius < 0)) {
